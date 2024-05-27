@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>message</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #28a745;
+        }
+        p {
+            font-size: 18px;
+            color: #333;
+        }
+        #countdown {
+            font-weight: bold;
+            color: #dc3545;
+        }
+    </style>
+
+    <script>
+        function startCountdown() {
+            var countdown = 10;
+            var countdownElement = document.getElementById("countdown");
+            countdownElement.innerHTML = countdown;
+
+            var interval = setInterval(function() {
+                countdown--;
+                countdownElement.innerHTML = countdown;
+                if (countdown <= 0) {
+                    clearInterval(interval);
+                    window.location.href = "/login";
+                }
+            }, 1000);
+        }
+    </script>
+
+</head>
+<body onload="startCountdown()">
+    <h2>{{msg}}</h2>
+    <br>
+    <br>
+    <p>Redirecting to login page in <span id="countdown">10</span> seconds...</p>
+</body>
+</html>
